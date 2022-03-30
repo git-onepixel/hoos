@@ -23,7 +23,9 @@
         tag.value = res.value;
         document.getElementsByTagName('body')[0].appendChild(tag);
         document.getElementById('cp_hgz_input').select();
-        document.execCommand('copy');
+        if (document.execCommand('copy')) {
+            alert('复制成功')
+        }
         document.getElementById('cp_hgz_input').remove();
     })  
       
