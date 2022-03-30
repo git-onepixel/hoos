@@ -20,7 +20,7 @@
     copy.addEventListener('click', () => {
         var tag = document.createElement('input');
         tag.setAttribute('id', 'cp_hgz_input');
-        tag.value = res.value;
+        tag.value = res.innerHTML;
         document.getElementsByTagName('body')[0].appendChild(tag);
         document.getElementById('cp_hgz_input').select();
         if (document.execCommand('copy')) {
