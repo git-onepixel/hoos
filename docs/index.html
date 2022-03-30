@@ -6,13 +6,32 @@
 <body>
   <textarea cols="80" rows="20" id="data"></textarea>
   <div>
-    <button id="fmt">格式化</button>
+    <button id="fmt">格式化</button> 
+      &nbsp;&nbsp;&nbsp;&nbsp;
+    <button id="copy">复制到剪贴板</button>
   </div>
-  <div style="padding-top:20px" id="res"></div>
+  <div style="padding-top:20px; word-break: break-all;" id="res"></div>
   <script>
      
     const fmt = document.querySelector('#fmt');
     const res = document.querySelector('#res');
+    const copy = document.querySelector('#copy');
+    
+    copy.addEventListener('click', () => {
+        const input = document.createElement('input');
+        document.body.appendChild(input);
+        // input.setAttribute('readonly', 'readonly');
+        input.setAttribute('hidden', true);
+        input.setAttribute('value', res.innerHTML);
+        
+        input.select();
+        if (document.execCommand('copy')) {
+            document.execCommand('copy');
+            alert('复制成功');
+        }
+        document.body.removeChild(input);
+    })  
+      
     
     fmt.addEventListener('click', () => {
        const data = document.querySelector('#data');
