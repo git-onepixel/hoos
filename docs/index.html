@@ -8,15 +8,25 @@
   <div>
     <button id="fmt">格式化</button> 
       &nbsp;&nbsp;&nbsp;&nbsp;
-    <button id="copy">复制到剪贴板</button>
+    <button id="copy">复制</button>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+    <button id="clear">清空</button>
   </div>
   <div style="padding-top:20px; word-break: break-all;" id="res"></div>
   <script>
      
+    const data = document.querySelector('#data');
     const fmt = document.querySelector('#fmt');
     const res = document.querySelector('#res');
     const copy = document.querySelector('#copy');
+    const clear = document.querySelector('#clear');
+      
     
+    clear.addEventListener('click', () => {
+       data.innerHTML = '';
+       res.innerHTML = '';
+    })    
+      
     copy.addEventListener('click', () => {
         var tag = document.createElement('input');
         tag.setAttribute('id', 'cp_hgz_input');
@@ -31,7 +41,6 @@
       
     
     fmt.addEventListener('click', () => {
-       const data = document.querySelector('#data');
        let arr = data.value.trim().split(/\n+/);
        arr = arr.map(o =>JSON.stringify(o));
        const value = arr.join(',');
