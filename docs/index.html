@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SQL格式化</title>
+</head>
+<body>
+  <textarea cols="80" rows="20" id="data"></textarea>
+  <div>
+    <button id="fmt"></button>
+  </div>
+  <div style="padding-top:20px" id="res"></div>
+  <script>
+     
+    const fmt = document.querySelector('#fmt');
+    const res = document.querySelector('#res');
+    
+    fmt.addEventListener('click', () => {
+       const data = document.querySelector('#data');
+       let arr = data.trim().split(/\n+/);
+       arr = arr.map(o = >JSON.stringify(o));
+       const value = arr.join(',');
+       res.innerHTML = value.replace(/"/g, "'"))
+    })
+  
+  </script>
+</body>
+</html>
+ 
