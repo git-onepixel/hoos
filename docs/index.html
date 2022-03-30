@@ -16,7 +16,7 @@
     
     fmt.addEventListener('click', () => {
        const data = document.querySelector('#data');
-       let arr = data.trim().split(/\n+/);
+       let arr = data.value.trim().split(/\n+/);
        arr = arr.map(o =>JSON.stringify(o));
        const value = arr.join(',');
        res.innerHTML = value.replace(/"/g, "'")
